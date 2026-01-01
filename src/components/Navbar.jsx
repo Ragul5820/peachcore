@@ -21,7 +21,13 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-24">
                     <Link to="/" className="flex-shrink-0 flex items-center gap-4 group">
-                        <img src="/logo-transparent.png" alt="Peachcore Solutions Logo" className="h-20 w-auto object-contain group-hover:scale-105 transition-transform duration-300" />
+                        <div className="h-20 w-20 flex items-center justify-center overflow-hidden rounded-full">
+                            <img
+                                src="/logo-transparent.png"
+                                alt="Peachcore Solutions Logo"
+                                className="h-full w-full object-contain scale-150 group-hover:scale-160 transition-transform duration-300"
+                            />
+                        </div>
                         <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary-green to-primary-blue bg-clip-text text-transparent">
                             Peachcore Solutions LLP
                         </span>
@@ -73,8 +79,8 @@ const Navbar = () => {
                                 key={link.name}
                                 to={link.href}
                                 className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${isActive(link.href)
-                                        ? 'bg-blue-50 text-primary-blue'
-                                        : 'text-gray-700 hover:bg-gray-50 hover:text-primary-blue'
+                                    ? 'bg-blue-50 text-primary-blue'
+                                    : 'text-gray-700 hover:bg-gray-50 hover:text-primary-blue'
                                     }`}
                                 onClick={() => setIsOpen(false)}
                             >

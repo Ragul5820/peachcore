@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle, Users, Target, Lightbulb } from 'lucide-react';
+import { CheckCircle, Users, Target, Lightbulb, Mail } from 'lucide-react';
 
 const About = () => {
     return (
@@ -74,6 +74,58 @@ const About = () => {
                             <p className="text-gray-600">{val.desc}</p>
                         </motion.div>
                     ))}
+                </div>
+
+                {/* Leadership Section */}
+                <div className="mt-32">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-16"
+                    >
+                        <h2 className="text-4xl font-bold text-gray-900 mb-4">Meet Our Leadership</h2>
+                        <div className="w-24 h-1.5 bg-gradient-to-r from-primary-blue to-primary-green mx-auto rounded-full"></div>
+                    </motion.div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {[
+                            { name: 'Shakil Ahmed', role: 'Chief Executive Officer', email: 'shakilnazarahmed@peachcore.in', icon: Users, gradient: 'from-blue-500 to-indigo-600' },
+                            { name: 'Bharani Dharan', role: 'Chief Technology Officer', email: 'bharanidharan@peachcore.in', icon: Users, gradient: 'from-emerald-500 to-teal-600' },
+                            { name: 'Ganesh Surya', role: 'Chief Financial Officer', email: 'ganeshsurya@peachcore.in', icon: Users, gradient: 'from-orange-500 to-red-600' },
+                            { name: 'Ragul', role: 'Chief Business Officer (IT & Edutech Head)', email: 'ragul@peachcore.in', icon: Users, gradient: 'from-purple-500 to-pink-600' }
+                        ].map((member, idx) => (
+                            <motion.div
+                                key={idx}
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: idx * 0.1 }}
+                                className="group bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 text-center relative overflow-hidden flex flex-col items-center justify-between"
+                            >
+                                <div className={`absolute top-0 inset-x-0 h-2 bg-gradient-to-r ${member.gradient} opacity-0 group-hover:opacity-100 transition-opacity`}></div>
+                                <div>
+                                    <div className={`w-24 h-24 mx-auto rounded-2xl bg-gradient-to-br ${member.gradient} flex items-center justify-center mb-6 text-white shadow-lg transform group-hover:rotate-6 transition-transform`}>
+                                        <member.icon size={40} />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-primary-blue transition-colors">
+                                        {member.name}
+                                    </h3>
+                                    <p className="text-primary-blue font-semibold text-sm tracking-wider uppercase mb-4 min-h-[40px]">
+                                        {member.role}
+                                    </p>
+                                </div>
+
+                                <a
+                                    href={`mailto:${member.email}`}
+                                    className="inline-flex items-center text-sm text-gray-500 hover:text-primary-blue hover:bg-white transition-all gap-2 bg-gray-50 px-4 py-2 rounded-full border border-gray-100 hover:border-primary-blue/30 shadow-sm hover:shadow-md group/email"
+                                >
+                                    <Mail size={14} className="group-hover/email:scale-110 transition-transform" />
+                                    <span className="truncate max-w-[150px] font-medium">{member.email}</span>
+                                </a>
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>

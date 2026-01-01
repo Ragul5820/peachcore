@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 const services = [
     {
+        id: 'electronics',
         title: 'Electronics',
         description: 'Advanced electronic solutions and circuit design for modern applications.',
         icon: Cpu,
@@ -14,6 +15,7 @@ const services = [
         gradient: 'from-orange-500 to-red-600'
     },
     {
+        id: 'rd',
         title: 'Research & Development',
         description: 'Innovative R&D services to bring your groundbreaking ideas to life.',
         icon: Lightbulb,
@@ -23,6 +25,7 @@ const services = [
         gradient: 'from-yellow-500 to-amber-600'
     },
     {
+        id: 'it-services',
         title: 'IT Services',
         description: 'Custom software development, cloud solutions, and enterprise resource planning.',
         icon: Code,
@@ -32,6 +35,7 @@ const services = [
         gradient: 'from-blue-500 to-indigo-600'
     },
     {
+        id: 'edutech',
         title: 'Edutech',
         description: 'Transforming learning with interactive platforms, LMS, and virtual classrooms.',
         icon: GraduationCap,
@@ -41,6 +45,7 @@ const services = [
         gradient: 'from-emerald-500 to-green-600'
     },
     {
+        id: 'procurement',
         title: 'Components Procurement',
         description: 'Reliable sourcing and supply chain management for high-quality electronic components.',
         icon: Package,
@@ -94,7 +99,7 @@ const Services = () => {
                                 {service.description}
                             </p>
 
-                            <Link to="/contact" className={`inline-flex items-center font-semibold ${service.color} hover:opacity-80 transition-opacity`}>
+                            <Link to={`/services/${service.id}`} className={`inline-flex items-center font-semibold ${service.color} hover:opacity-80 transition-opacity`}>
                                 Learn more <ArrowRight className="ml-2 w-4 h-4" />
                             </Link>
                         </motion.div>
