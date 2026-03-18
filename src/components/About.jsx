@@ -91,7 +91,7 @@ const About = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                         {[
                             { name: 'Shakil Ahmed', role: 'Chief Executive Officer', email: 'shakilnazarahmed@peachcore.in', icon: Users, gradient: 'from-blue-500 to-indigo-600' },
-                            { name: 'Bharani Dharan', role: 'Chief Technology Officer', email: 'bharanidharan@peachcore.in', icon: Users, gradient: 'from-emerald-500 to-teal-600' },
+                            { name: 'Bharani Dharan', role: 'Chief Technology Officer (R&D Head)', email: 'bharanidharan@peachcore.in', icon: Users, gradient: 'from-emerald-500 to-teal-600' },
                             { name: 'Ganesh Surya', role: 'Chief Financial Officer', email: 'ganeshsurya@peachcore.in', icon: Users, gradient: 'from-orange-500 to-red-600' },
                             { name: 'Ragul', role: 'Chief Business Officer (IT & Edutech Head)', email: 'ragul@peachcore.in', icon: Users, gradient: 'from-purple-500 to-pink-600' }
                         ].map((member, idx) => (
