@@ -12,13 +12,23 @@ function App() {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    // Initialize theme from localStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
   return (
-    <div className="min-h-screen bg-white font-sans text-gray-900 flex flex-col relative overflow-hidden">
+    <div className="min-h-screen bg-white dark:bg-slate-950 font-sans text-gray-900 dark:text-gray-100 flex flex-col relative overflow-hidden transition-colors duration-300">
       {/* Global Background Logo */}
-      <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.03]">
+      <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.03] dark:opacity-[0.015] transition-opacity duration-300">
         <img src="/logo-transparent.png" alt="" className="w-[800px] h-[800px] object-contain" />
       </div>
 
