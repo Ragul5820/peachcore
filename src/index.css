@@ -1,8 +1,13 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
-  --color-primary-blue: #004aad;
-  --color-primary-green: #00C853;
+  --color-primary-blue: #2563eb;
+  --color-primary-green: #10b981;
+  --color-brand-cyan: #06b6d4;
+  --color-brand-indigo: #4f46e5;
+  --color-brand-dark-bg: #090d16;
 }
 
 html {
@@ -11,4 +16,50 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Grid Pattern Utility */
+@utility bg-grid-pattern {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(99, 102, 241, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(99, 102, 241, 0.04) 1px, transparent 1px);
+
+  .dark & {
+    background-image: 
+      linear-gradient(to right, rgba(99, 102, 241, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(99, 102, 241, 0.08) 1px, transparent 1px);
+  }
+}
+
+/* Glassmorphism Utilities */
+@utility glass-card {
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(229, 231, 235, 0.5);
+
+  .dark & {
+    background-color: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(51, 65, 85, 0.5);
+  }
+}
+
+@utility glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-color: rgba(37, 99, 235, 0.25);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+    transform: translateY(-4px);
+  }
+
+  .dark &:hover {
+    background-color: rgba(15, 23, 42, 0.75);
+    border-color: rgba(16, 185, 129, 0.25);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+    transform: translateY(-4px);
+  }
 }

@@ -25,20 +25,20 @@ const FAQ = () => {
     const [activeIndex, setActiveIndex] = useState(null);
 
     return (
-        <section className="py-24 bg-gray-50">
+        <section className="py-24 bg-gray-50 dark:bg-slate-900 transition-colors duration-300">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 shadow-sm text-sm font-semibold text-primary-blue mb-6"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-slate-950 border border-gray-200 dark:border-slate-800 shadow-sm text-sm font-semibold text-primary-blue dark:text-primary-green mb-6"
                     >
                         <HelpCircle size={18} />
                         Got Questions?
                     </motion.div>
-                    <h2 className="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-                    <p className="text-lg text-gray-600">Everything you need to know about our services and processes.</p>
+                    <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Frequently Asked Questions</h2>
+                    <p className="text-lg text-gray-600 dark:text-gray-300">Everything you need to know about our services and processes.</p>
                 </div>
 
                 <div className="space-y-4">
@@ -49,16 +49,16 @@ const FAQ = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden"
+                            className="bg-white dark:bg-slate-950 rounded-2xl border border-gray-100 dark:border-slate-800 shadow-sm overflow-hidden"
                         >
                             <button
                                 onClick={() => setActiveIndex(activeIndex === index ? null : index)}
-                                className="w-full flex items-center justify-between p-6 text-left focus:outline-none hover:bg-gray-50/50 transition-colors"
+                                className="w-full flex items-center justify-between p-6 text-left focus:outline-none hover:bg-gray-50/50 dark:hover:bg-slate-900/50 transition-colors"
                             >
-                                <span className="text-lg font-bold text-gray-900 leading-tight">
+                                <span className="text-lg font-bold text-gray-900 dark:text-white leading-tight">
                                     {faq.question}
                                 </span>
-                                <div className={`flex-shrink-0 ml-4 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${activeIndex === index ? 'bg-primary-blue text-white rotate-180' : 'bg-gray-100 text-gray-500'}`}>
+                                <div className={`flex-shrink-0 ml-4 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${activeIndex === index ? 'bg-primary-blue text-white rotate-180' : 'bg-gray-100 dark:bg-slate-800 text-gray-500 dark:text-gray-400'}`}>
                                     {activeIndex === index ? <Minus size={18} /> : <Plus size={18} />}
                                 </div>
                             </button>
@@ -71,7 +71,7 @@ const FAQ = () => {
                                         exit={{ height: 0, opacity: 0 }}
                                         className="overflow-hidden"
                                     >
-                                        <div className="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-50 pt-4">
+                                        <div className="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-50 dark:border-slate-800 pt-4">
                                             {faq.answer}
                                         </div>
                                     </motion.div>

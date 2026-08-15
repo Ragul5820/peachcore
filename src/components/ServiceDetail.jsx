@@ -83,45 +83,45 @@ const ServiceDetail = () => {
 
     if (!service) {
         return (
-            <div className="min-h-screen flex items-center justify-center p-4">
+            <div className="min-h-screen flex items-center justify-center p-4 bg-white dark:bg-slate-950 transition-colors duration-300">
                 <div className="text-center">
-                    <h2 className="text-3xl font-bold mb-4">Service not found</h2>
-                    <Link to="/services" className="text-primary-blue hover:underline">Return to services</Link>
+                    <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Service not found</h2>
+                    <Link to="/services" className="text-primary-blue dark:text-primary-green hover:underline">Return to services</Link>
                 </div>
             </div>
         );
     }
 
     return (
-        <section className="pt-32 pb-20 bg-gray-50 min-h-screen">
+        <section className="pt-32 pb-20 bg-gray-50 dark:bg-slate-900 min-h-screen transition-colors duration-300">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     className="mb-12"
                 >
-                    <Link to="/services" className="inline-flex items-center text-gray-600 hover:text-primary-blue transition-colors mb-8 group">
+                    <Link to="/services" className="inline-flex items-center text-gray-600 dark:text-gray-300 hover:text-primary-blue dark:hover:text-primary-green transition-colors mb-8 group">
                         <ArrowLeft className="mr-2 group-hover:-translate-x-1 transition-transform" />
                         Back to all services
                     </Link>
 
                     <div className="flex items-center gap-6 mb-8">
-                        <div className={`p-5 rounded-3xl bg-${service.color}-50 text-${service.color}-600 shadow-sm`}>
+                        <div className={`p-5 rounded-3xl bg-${service.color}-50 dark:bg-${service.color}-950/30 text-${service.color}-600 dark:text-${service.color}-400 shadow-sm`}>
                             <service.icon size={48} />
                         </div>
-                        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
+                        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
                             {service.title}
                         </h1>
                     </div>
 
-                    <p className="text-2xl text-gray-600 leading-relaxed mb-10">
+                    <p className="text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-10">
                         {service.description}
                     </p>
 
-                    <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 relative overflow-hidden">
+                    <div className="bg-white dark:bg-slate-950 rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 dark:border-slate-800 relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-64 h-64 bg-primary-blue/5 rounded-full blur-3xl -mr-32 -mt-32"></div>
 
-                        <h3 className="text-2xl font-bold text-gray-900 mb-8 relative z-10">What We Provide</h3>
+                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 relative z-10">What We Provide</h3>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-12 relative z-10">
                             {service.details.map((detail, idx) => (
                                 <motion.div
@@ -131,25 +131,25 @@ const ServiceDetail = () => {
                                     transition={{ delay: idx * 0.1 }}
                                     className="flex items-start gap-4"
                                 >
-                                    <div className="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center">
-                                        <CheckCircle2 size={16} className="text-emerald-600" />
+                                    <div className="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-emerald-100 dark:bg-emerald-950/50 flex items-center justify-center">
+                                        <CheckCircle2 size={16} className="text-emerald-600 dark:text-emerald-400" />
                                     </div>
-                                    <span className="text-lg text-gray-700 font-medium leading-tight">{detail}</span>
+                                    <span className="text-lg text-gray-700 dark:text-gray-300 font-medium leading-tight">{detail}</span>
                                 </motion.div>
                             ))}
                         </div>
 
-                        <div className="mt-12 border-t border-gray-100 pt-12 relative z-10">
-                            <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Approach</h3>
-                            <p className="text-lg text-gray-600 leading-relaxed italic">
+                        <div className="mt-12 border-t border-gray-100 dark:border-slate-800 pt-12 relative z-10">
+                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Our Approach</h3>
+                            <p className="text-lg text-gray-600 dark:text-gray-350 leading-relaxed italic">
                                 "{service.longDesc}"
                             </p>
                         </div>
 
                         <div className="mt-12 flex justify-center relative z-10">
                             <Link
-                                to="/contact"
-                                className="px-10 py-4 bg-primary-blue text-white font-bold rounded-2xl hover:bg-blue-700 transition-all hover:shadow-2xl hover:-translate-y-1 shadow-lg"
+                                  to="/contact"
+                                  className="px-10 py-4 bg-primary-blue text-white font-bold rounded-2xl hover:bg-blue-700 transition-all hover:shadow-2xl hover:-translate-y-1 shadow-lg"
                             >
                                 {service.ctaText}
                             </Link>
