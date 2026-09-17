@@ -6,7 +6,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
-    const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
+    const [theme, setTheme] = useState(() => {
+        try {
+            return localStorage.getItem('theme') || 'light';
+        } catch (e) {
+            return 'light';
+        }
+    });
 
     // Sync theme state with the html class
     useEffect(() => {
@@ -20,7 +26,11 @@ const Navbar = () => {
     const toggleTheme = () => {
         const nextTheme = theme === 'light' ? 'dark' : 'light';
         setTheme(nextTheme);
-        localStorage.setItem('theme', nextTheme);
+        try {
+            localStorage.setItem('theme', nextTheme);
+        } catch (e) {
+            console.warn('localStorage is restricted:', e);
+        }
     };
 
     const navLinks = [
