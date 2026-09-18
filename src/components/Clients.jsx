@@ -8,6 +8,8 @@ const clients = [
     name: 'Veloranexa Technologies',
     subtitle: 'Enterprise Cloud & Deep Tech Solutions',
     badge: 'Tech Integration Partner',
+    logo: '/veloranexa-logo.jpg',
+    website: 'https://veloranexa.com',
     icon: Cpu,
     iconColor: 'text-blue-500 dark:text-cyan-400',
     iconBg: 'bg-blue-50 dark:bg-blue-950/40',
@@ -21,6 +23,8 @@ const clients = [
     name: 'Venkateshwara Traders',
     subtitle: 'Agribusiness Logistics & Trading ERP',
     badge: 'Supply Chain Partner',
+    logo: '/venkateshwara-logo.jpg',
+    website: 'https://srivenkateswaratrader.in',
     icon: Leaf,
     iconColor: 'text-emerald-500 dark:text-emerald-450',
     iconBg: 'bg-emerald-50 dark:bg-emerald-950/40',
@@ -86,10 +90,18 @@ const Clients = () => {
                   <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary-blue/10 dark:from-primary-green/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                   <div>
-                    {/* Header: Icon + Badge */}
-                    <div className="flex justify-between items-start mb-6">
-                      <div className={`w-14 h-14 rounded-2xl ${client.iconBg} flex items-center justify-center shadow-inner group-hover:scale-110 transition-transform duration-300`}>
-                        <IconComponent className={`w-7 h-7 ${client.iconColor}`} />
+                    {/* Header: Logo / Icon + Badge */}
+                    <div className="flex justify-between items-center mb-6">
+                      <div className="flex items-center gap-4">
+                        {client.logo ? (
+                          <div className="w-16 h-16 rounded-2xl bg-white dark:bg-slate-900 p-2 shadow-md border border-gray-100 dark:border-slate-800 flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                            <img src={client.logo} alt={client.name} className="w-full h-full object-contain" />
+                          </div>
+                        ) : (
+                          <div className={`w-14 h-14 rounded-2xl ${client.iconBg} flex items-center justify-center shadow-inner group-hover:scale-110 transition-transform duration-300`}>
+                            <IconComponent className={`w-7 h-7 ${client.iconColor}`} />
+                          </div>
+                        )}
                       </div>
                       <span className="text-xs font-semibold px-3 py-1 rounded-full bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-300 border border-gray-200/50 dark:border-slate-700/50">
                         {client.badge}
@@ -128,10 +140,22 @@ const Clients = () => {
                         <Zap size={14} className="text-amber-500" />
                         <span>Cooperation: {client.collaborationPeriod}</span>
                       </div>
-                      <div className="text-primary-blue dark:text-primary-green flex items-center gap-1 text-sm font-bold group/link">
-                        <span>Partner Profile</span>
-                        <ArrowUpRight size={16} className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
-                      </div>
+                      {client.website ? (
+                        <a 
+                          href={client.website} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="text-primary-blue dark:text-primary-green flex items-center gap-1 text-sm font-bold group/link hover:underline"
+                        >
+                          <span>Visit Website</span>
+                          <Globe size={16} className="group-hover/link:rotate-12 transition-transform" />
+                        </a>
+                      ) : (
+                        <div className="text-primary-blue dark:text-primary-green flex items-center gap-1 text-sm font-bold group/link">
+                          <span>Partner Profile</span>
+                          <ArrowUpRight size={16} className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                        </div>
+                      )}
                     </div>
                   </div>
 
