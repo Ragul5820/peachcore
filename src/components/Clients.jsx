@@ -13,7 +13,7 @@ const clients = [
     iconBg: 'bg-blue-50 dark:bg-blue-950/40',
     description: 'Collaborating on next-generation enterprise IoT networks, high-throughput cloud API architectures, and automated CI/CD pipeline structures to support their global tech scaling.',
     tags: ['IoT Networks', 'Cloud Infrastructure', 'API Systems', 'Security Scaling'],
-    collaborationPeriod: 'Since 2025',
+    collaborationPeriod: 'Since 2026',
     gradient: 'from-blue-600 to-indigo-650'
   },
   {
@@ -26,7 +26,7 @@ const clients = [
     iconBg: 'bg-emerald-50 dark:bg-emerald-950/40',
     description: 'Designing intelligent supply chain tracking systems, bulk trading ledgers, and inventory logistics platforms to optimize wholesale trading flows and real-time shipment transparency.',
     tags: ['Smart Logistics', 'Inventory ERP', 'Trading Ledgers', 'Real-time Tracking'],
-    collaborationPeriod: 'Since 2024',
+    collaborationPeriod: 'Since 2026',
     gradient: 'from-emerald-600 to-teal-650'
   }
 ];
