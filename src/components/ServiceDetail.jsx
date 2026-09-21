@@ -142,7 +142,7 @@ const ServiceDetail = () => {
                         <div className="mt-12 border-t border-gray-100 dark:border-slate-800 pt-12 relative z-10">
                             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Our Approach</h3>
                             <p className="text-lg text-gray-600 dark:text-gray-350 leading-relaxed italic">
-                                "{service.longDesc}"
+                                &ldquo;{service.longDesc}&rdquo;
                             </p>
                         </div>
 
